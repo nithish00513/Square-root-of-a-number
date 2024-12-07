@@ -15,15 +15,35 @@ To write a program to find the square root of a number.
 5. Return number
 
 ## Program:
-```
-/*
-Program to find the square root for the given number(newton's method) using function.
-Developed by: 
-RegisterNumber:  
-*/
-```
+def newton_sqrt(number, tolerance=1e-7):
+   
+    
+    if number < 0:
+        raise ValueError("Cannot compute square root of a negative number.")
+
+   
+    x = number if number >= 1 else 1
+
+    while True:
+        next_x = 0.5 * (x + number / x)
+        if abs(next_x - x) < tolerance: 
+            return next_x
+        x = next_x
+
+
+try:
+    num = float(input(""))
+    sqrt_result = newton_sqrt(num)
+    if(sqrt_result>3):
+        print("Square root of the number:",sqrt_result)
+    else:
+        print("Square root of the number: %.1f"%sqrt_result)
+except ValueError as e:
+    print(e)
 
 ## Output:
+![alt text](<Screenshot 2024-12-07 185550.png>)
+
 
 
 
